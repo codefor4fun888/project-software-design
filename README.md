@@ -607,12 +607,3 @@ Potential future improvements include:
 - Docker deployment
 - Cloud deployment
 
----
-
-# Disclaimer
-
-CivicForecast is an educational software project and proof of concept.
-
-The current election markets and candidates are fictional examples used to demonstrate the application's functionality.
-
-**CivicForecast uses virtual currency only and does not support real-money betting.**
