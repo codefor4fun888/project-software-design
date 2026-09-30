@@ -1,13 +1,18 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+app = FastAPI(
+    title="Civic Forecast API",
+    description="Backend API for the Civic Forecast prediction market.",
+    version="1.0.0",
+)
 
+# Allow the React development server to communicate with FastAPI.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "http://localhost:5174"
+        "http://127.0.0.1:5173",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -17,7 +22,9 @@ app.add_middleware(
 
 @app.get("/")
 def home():
-    return {"message": "Civic Forecast API is running"}
+    return {
+        "message": "Civic Forecast API is running"
+    }
 
 
 @app.get("/markets")
@@ -30,7 +37,7 @@ def get_markets():
             "candidateA": "Candidate A",
             "candidateAProbability": 55,
             "candidateB": "Candidate B",
-            "candidateBProbability": 45
+            "candidateBProbability": 45,
         },
         {
             "id": 2,
@@ -39,7 +46,7 @@ def get_markets():
             "candidateA": "Candidate C",
             "candidateAProbability": 62,
             "candidateB": "Candidate D",
-            "candidateBProbability": 38
+            "candidateBProbability": 38,
         },
         {
             "id": 3,
@@ -48,6 +55,6 @@ def get_markets():
             "candidateA": "Candidate E",
             "candidateAProbability": 48,
             "candidateB": "Candidate F",
-            "candidateBProbability": 52
-        }
+            "candidateBProbability": 52,
+        },
     ]
